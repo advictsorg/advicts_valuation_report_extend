@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_valuation_tree_inherited" model="ir.ui.view">
+            <field name="name">stock.valuation.layer.inherited</field>
+            <field name="model">stock.valuation.layer</field>
+            <field name="inherit_id" ref="stock_account.stock_valuation_layer_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="purchase_cost" decoration-danger="purchase_cost &lt; 0" decoration-success="purchase_cost &gt; 0"/>
+                    <field name="avg_cost" decoration-danger="avg_cost &lt; 0" decoration-success="avg_cost &gt; 0"/>
+                    <field name="landed_cost" decoration-danger="landed_cost &lt; 0" decoration-success="landed_cost &gt; 0"/>
+                    <field name="landed_cost_per_unit" decoration-danger="landed_cost_per_unit &lt; 0" decoration-success="landed_cost_per_unit &gt; 0"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
